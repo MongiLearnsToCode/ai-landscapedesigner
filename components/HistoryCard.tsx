@@ -75,6 +75,13 @@ export const HistoryCard: React.FC<HistoryCardProps> = ({
     }
   };
 
+  const handleCardKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleCardClick();
+    }
+  };
+
   // Common classes for both views
   const cardStateClasses = isSelectionMode
     ? `cursor-pointer ${isSelected ? 'border-orange-500 bg-orange-50 shadow-md' : 'border-slate-200/80 hover:bg-slate-50'}`
@@ -85,6 +92,10 @@ export const HistoryCard: React.FC<HistoryCardProps> = ({
       <div 
         className={`bg-white rounded-2xl border transition-all duration-300 flex flex-col group overflow-hidden ${cardStateClasses}`}
         onClick={handleCardClick}
+        onKeyDown={handleCardKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label={`${styleNames} design from ${new Date(item.timestamp).toLocaleDateString()}`}
       >
         <div className="relative w-full aspect-video bg-slate-100">
           {isSelectionMode && (
@@ -146,6 +157,10 @@ export const HistoryCard: React.FC<HistoryCardProps> = ({
     <div 
         className={`bg-white p-4 rounded-2xl border transition-all duration-300 ${cardStateClasses}`}
         onClick={handleCardClick}
+        onKeyDown={handleCardKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label={`${styleNames} design from ${new Date(item.timestamp).toLocaleDateString()}`}
     >
       <div className="flex items-center space-x-4">
         {isSelectionMode && (

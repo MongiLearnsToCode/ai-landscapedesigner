@@ -30,10 +30,10 @@ export const EngagingLoader: React.FC = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 flex flex-col items-center justify-center min-h-[400px] w-full text-center">
-      <div className="relative h-16 w-16">
+      <div className="relative h-20 w-20">
         <div className="absolute inset-0 rounded-full bg-slate-200 animate-pulse"></div>
         <div className="absolute inset-2 rounded-full bg-white"></div>
-        <Orbit className="absolute inset-4 h-8 w-8 text-slate-500 animate-spin" style={{ animationDuration: '3s' }}/>
+        <Orbit className="absolute inset-0 m-auto text-slate-500 animate-spin" style={{ width: '48px', height: '48px', animationDuration: '3s' }}/>
       </div>
       <h3 className="mt-6 text-xl font-medium text-slate-800">Redesigning in Progress...</h3>
       <div className="mt-2 text-slate-500 h-10 flex items-center justify-center">

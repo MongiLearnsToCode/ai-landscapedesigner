@@ -30,7 +30,14 @@ export const Header: React.FC = () => {
           <div 
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => navigateTo('main')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navigateTo('main');
+              }
+            }}
             role="button"
+            tabIndex={0}
             aria-label="Go to homepage"
           >
             <Leaf className="h-7 w-7 text-orange-500" />
